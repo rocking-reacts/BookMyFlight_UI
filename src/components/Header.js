@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo/travelling.png';
 
 const Header = () => {
@@ -6,16 +7,16 @@ const Header = () => {
         <div>
             <nav className="navbar navbar-dark bg-nav fixed-top" style={navstyle.bg}>
                 <div className="container-fluid">
-                    <a style={navstyle.navbar_brand} href="#">
+                    <Link style={navstyle.navbar_brand} to="/">
                         <img src={logo} alt="plane_logo" width="30" height="24" className="d-inline-block align-text-top" />
                         BookMyFlight
-                    </a>
+                    </Link>
                     <ul className="nav justify-content-end">
                         <li className="nav-item">
-                        <a className="nav-link" href="#">Profile</a>
+                        <Link className="nav-link text-info" to="/login">Login</Link>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#">Login</a>
+                        <Link className="nav-link text-info" to="/register">Register</Link>
                         </li>
                     </ul>
                 </div>
