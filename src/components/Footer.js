@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+function Footer() {
     return (
         <div>
             <nav className="navbar navbar-dark fixed-bottom" style={footerStyle.bg}>
