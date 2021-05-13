@@ -8,6 +8,8 @@ import ErrorWorld from './components/ErrorWorld';
 import Admin from './components/Admin';
 import AddFlight from './components/AddFlight';
 import FlightListAdmin from './components/FlightListAdmin';
+import Passengers from './components/Passengers';
+import Ticket from './components/Ticket' 
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/booking" component={Booking} />
+        <Route path="/passengers" component={Passengers} />
+        <Route path="/ticket" component={Ticket} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/payment" component={Payment} />
