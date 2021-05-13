@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/TicketStyle.css'
+import '../assets/css/TicketStyle.css'
 
 function Passengers(props) {
     return (
