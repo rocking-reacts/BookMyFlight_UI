@@ -1,7 +1,7 @@
 import React from 'react';
 import background from '../assets/images/plane3.jpg';
 
-const ErrorWorld = () => {
+function ErrorWorld(props) {
     return (
         <div className="container-fluid" style={styling.bg}>
             <h1 style={styling.heading}>
@@ -9,7 +9,7 @@ const ErrorWorld = () => {
             </h1>
         </div>
     );
-};
+}
 
 let styling = {
     bg : {

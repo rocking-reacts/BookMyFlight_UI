@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo/travelling.png';
 
-const Header = () => {
+function Header(props) {
     return (
         <div>
             <nav className="navbar navbar-dark bg-nav fixed-top" style={navstyle.bg}>

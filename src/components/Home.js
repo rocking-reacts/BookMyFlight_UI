@@ -9,6 +9,7 @@ import plane2 from '../assets/images/plane2.jpg';
 import plane3 from '../assets/images/plane3.jpg';
 import plane4 from '../assets/images/plane4.jpg';
 import plane5 from '../assets/images/plane5.jpg';
+import FlightList from './FlightList';
 
 function Home(props) {
     return (
@@ -53,7 +54,9 @@ function Home(props) {
                     </div>
                 </section>
 
-                <SearchFlight></SearchFlight>
+                <SearchFlight />
+
+                <FlightList />
 
                 <section className="container-fluid  pt-3 pb-5 section-bg">
                 <h1>Your valuable reviews</h1>

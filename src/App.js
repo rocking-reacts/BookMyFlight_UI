@@ -5,6 +5,9 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Payment from './components/Payment';
 import ErrorWorld from './components/ErrorWorld';
+import Admin from './components/Admin';
+import AddFlight from './components/AddFlight';
+import FlightListAdmin from './components/FlightListAdmin';
 
 function App() {
   return (
@@ -15,7 +18,11 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/payment" component={Payment} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/addFlight" component={AddFlight} />
+        <Route path="/allFlights" component={FlightListAdmin} />
         <Route component={ErrorWorld} />
+        
       </Switch>
     </main>
   );
