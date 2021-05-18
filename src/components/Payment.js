@@ -47,7 +47,8 @@ function Payment(props) {
 
                                 <div className="row">
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label for="cc-exp" className="control-label">CARD EXPIRY</label>
+                                            <div className="form-group"> 
+                                            <label for="cc-exp" className="control-label">CARD EXPIRY</label>
                                             <input id="cc-exp" type="month" className="form-control"  required/>
                                             </div>
                                         </div>
@@ -61,18 +62,18 @@ function Payment(props) {
                                 <br></br>
                                 <div className="form-group"> 
                                         <label for="holder-name" className="control-label">CARD HOLDER NAME</label> 
-                                        <input type="text" className="form-control"/>
+                                        <input type="text" className="form-control" required pattern="[A-Za-z]{4,}"/>
                                 </div>
                                 
                                 <br></br>
-                                {/* Display the amount to be paid */}
-                                <br></br>
+                               
                         
                                 <div className="card-footer"> 
                                    <div className="col-md-12 text-center">
-                                        <button type="button" className="subscribe btn btn-primary btn-block shadow-sm"> Make Payment </button>
+                                        <button type="submit" className="subscribe btn btn-primary btn-block shadow-sm"> Make Payment </button>
                                     </div> 
                                 </div>
+                                
                                                             
                              </form>
 
