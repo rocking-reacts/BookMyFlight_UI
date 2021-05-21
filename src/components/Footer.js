@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
     return (
-        <div>
-            <nav className="navbar navbar-dark fixed-bottom" style={footerStyle.bg}>
+        <div style={footerStyle.pos}>
+            <nav className="navbar navbar-dark" style={footerStyle.bg}>
                 <div className="container-fluid">
                     <span className="navbar-text">
                         Contact : 9233477993
@@ -15,6 +15,9 @@ function Footer() {
 };
 
 let footerStyle = {
+    pos : {
+        position : "relative"
+    },
     bg : {
         background : "midnightBlue"
     }

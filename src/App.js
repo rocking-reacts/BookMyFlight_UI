@@ -10,6 +10,7 @@ import AddFlight from './components/AddFlight';
 import FlightListAdmin from './components/FlightListAdmin';
 import Passengers from './components/Passengers';
 import Ticket from './components/Ticket' 
+import UpdateFlight from './components/UpdateFlight';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin" component={Admin} />
         <Route path="/addFlight" component={AddFlight} />
         <Route path="/allFlights" component={FlightListAdmin} />
+        <Route path="/updateFlight" component={UpdateFlight} />
         <Route component={ErrorWorld} />
         
       </Switch>

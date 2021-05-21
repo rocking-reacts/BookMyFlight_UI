@@ -3,6 +3,40 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo/travelling.png';
 
 function Header(props) {
+    const flightuser = localStorage.getItem('user');
+    const loggedIn = (
+        
+            <ul className="nav justify-content-end">
+                <li className="nav-item">
+                <Link className="nav-link text-info" to="/login">
+                    <button className="btn btn-outline-info">Login</button>
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link text-info" to="/register">
+                    <button className="btn btn-outline-info">Register</button>
+                </Link>
+                </li>
+            </ul>
+        
+    );
+
+    const loggedOut = (
+            <ul className="nav justify-content-end">
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/login">
+                        <button className="btn btn-outline-info">Logout</button>
+                    </Link>
+                </li>
+                {/* <li className="nav-item">
+                    <Link className="nav-link text-info" to="/">
+                        <button className="btn btn-outline-info">BookingHistory</button>
+                    </Link>
+                </li> */}
+            </ul>
+    );
+    
+
     return (
         <div>
             <nav className="navbar navbar-dark bg-nav fixed-top" style={navstyle.bg}>
@@ -11,14 +45,9 @@ function Header(props) {
                         <img src={logo} alt="plane_logo" width="30" height="24" className="d-inline-block align-text-top" />
                         BookMyFlight
                     </Link>
-                    <ul className="nav justify-content-end">
-                        <li className="nav-item">
-                        <Link className="nav-link text-info" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link text-info" to="/register">Register</Link>
-                        </li>
-                    </ul>
+                    
+                    {loggedIn}    
+                   
                 </div>
             </nav>
         </div>

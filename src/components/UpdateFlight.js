@@ -1,67 +1,76 @@
-import React from 'react';
-import plane from '../assets/images/travel1.jpg';
-import Footer from './Footer';
-import Header from './Header';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import FlightServiceRest from '../services/FlightServiceRest';
+import { Link } from 'react-router-dom';
+import plane from '../assets/images/travel1.jpg';
+import Header from './Header';
+import Footer from './Footer';
 
-class AddFlight extends React.Component {
+class UpdateFlight extends Component {
+
     constructor(props){
         super(props);
         // this.service= new FlightService();
         this.service = new FlightServiceRest();
+        this.temp = JSON.parse(localStorage.getItem('flight'));
         this.state = {
-            source : undefined,
-            destination: undefined,
-            travelDate: undefined,
-            arrivalTime: undefined,
-            departureTime: undefined,
-            price: 0,
-            availableSeats: 0
+            flightNumber: this.temp.flightNumber,
+            source : this.temp.source,
+            destination: this.temp.destination,
+            travelDate: this.temp.travelDate,
+            arrivalTime: this.temp.arrivalTime,
+            departureTime: this.temp.departureTime,
+            price: this.temp.price,
+            availableSeats: this.temp.availableSeats
         }
+
+        console.log("flight", this.temp);
     }
 
     handleInput = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
-            [name]:value
+            [name] : value
         })
     }
 
-    onSave = (e) => {
+    onUpdate = (e) => {
         e.preventDefault();
         const flight = this.state;
         console.log(flight);
-        this.service.saveFlight(flight);
-        alert("The flight has been added");
+        this.service.updateFlight(flight);
+        alert("Your flight has been updated" + flight);
     }
 
     render() {
         return (
-        <div>
-            <Header />
-        
-        <div className="container-fluid" style={styling.wrapper}>
+            <div>
+                <Header/>
+            <div className="container-fluid" style={styling.wrapper}>
             
             <nav aria-label="breadcrumb">
-                <ol className="breadcrumb p-2">
+                <ol className="breadcrumb p-3">
                     <li className="breadcrumb-item">
-                        <Link to="/admin">Admin</Link>
+                        <Link to="/allFlights">Flight List</Link>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Flight</li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Flight</li>
                 </ol>
             </nav>
-            
-            <form className="m-auto mt-3 m-1 border border-dark p-3" onSubmit={this.onSave}
+
+            <form className="m-auto mt-3 m-1 border border-dark p-3" onSubmit={this.onUpdate}
              style={styling.formStyle}>
-                <h1 className="mb-3" style={styling.heading}>Add New Flight Schedule</h1>
-            
+                <h3 className="mb-3" style={styling.heading}>Update Flight Schedule</h3>
+                <div className="input-group mb-2 mr-sm-2">    
+                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Flight Id</label>
+                    <input type="number" className="col-5 my-1 p-1 border border-darken-2" value={this.state.flightNumber}
+                     name="flightNumber" disabled />
+                </div>
+                {/* <label>Source</label> */}
                 <div className="input-group mb-2 mr-sm-2">
                     {/* <!-- Drop down for source --> */}    
                     <label className="col-4 my-1 p-1 bg-light border border-darken-2" for="source">Source</label>
                     <select className="custom-select my-1 mr-sm-2" id="source" name="source" onClick={this.handleInput} required>
-                    <option value="Chennai" onClick={this.handleInput}>Chennai</option>
+                    <option value="Chennai" onClick={this.handleInput}>{this.state.source}</option>
                     <option value="Delhi" onClick={this.handleInput}>Delhi</option>
                     <option value="Mumbai" onClick={this.handleInput}>Mumbai</option>
                     <option value="Kolkata" onClick={this.handleInput}>Kolkata</option>
@@ -72,7 +81,7 @@ class AddFlight extends React.Component {
                 <div className="input-group mb-2 mr-sm-2">    
                     <label className="col-4 my-1 p-1 bg-light border border-darken-2">Destination</label>
                     <select className="custom-select my-1 mr-sm-2" name="destination" onClick={this.handleInput} required>
-                    <option value="Chennai" onClick={this.handleInput}>Chennai</option>
+                    <option value="Chennai" onClick={this.handleInput}>{this.state.destination}</option>
                     <option value="Delhi" onClick={this.handleInput}>Delhi</option>
                     <option value="Mumbai" onClick={this.handleInput}>Mumbai</option>
                     <option value="Kolkata" onClick={this.handleInput}>Kolkata</option>
@@ -94,7 +103,7 @@ class AddFlight extends React.Component {
                 
                 <div className="input-group mb-2 mr-sm-2">    
                     <label className="col-4 my-1 p-1 bg-light border border-darken-2">Departure Time</label>
-                    <input className="col-5 my-1 p-1 border border-darken-2" type="time" value={this.state.departure}
+                    <input className="col-5 my-1 p-1 border border-darken-2" type="time" value={this.state.departureTime}
                      name="departureTime" onChange={this.handleInput} required />
                 </div>
 
@@ -105,18 +114,18 @@ class AddFlight extends React.Component {
                 </div>
 
                 <div className="input-group mb-2 mr-sm-2">    
-                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Available Seats</label>
+                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Available seats</label>
                     <input type="number" className="col-5 my-1 p-1 border border-darken-2" value={this.state.availableSeats}
                      name="availableSeats" onChange={this.handleInput}  required />
                 </div>
                 
-                <button type="submit" className="btn btn-warning mr-4">Submit</button>
+                <button type="submit" className="mr-4 btn btn-warning">Submit</button>
                 <button type="reset" className="btn btn-outline-dark">Reset</button>
             </form>
             </div>
-            <Footer/>
+        <Footer/>
         </div>
-       
+
         );
     }
 }
@@ -124,8 +133,8 @@ class AddFlight extends React.Component {
 let styling = {
     wrapper : {
         background: `url(${plane})`,
-        paddingTop : 100,
-        paddingBottom : 100
+        paddingTop : 70,
+        paddingBottom: 70
     },
     heading : {
         color : "midnightblue",
@@ -137,4 +146,4 @@ let styling = {
     }
 }
 
-export default AddFlight;
+export default UpdateFlight;
