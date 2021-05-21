@@ -1,8 +1,107 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import logo from '../assets/logo/travelling.png';
 
 function Header(props) {
+    const history = useHistory();
+    const flightuser = localStorage.getItem('user');
+    const loggedIn = (
+        
+            <ul className="nav justify-content-end">
+             <li className="nav-item">
+                <Link className="nav-link text-info" to="/">
+                    <button className="btn btn-outline-info">Home</button>
+                </Link>
+            </li>
+                <li className="nav-item">
+                <Link className="nav-link text-info" to="/login">
+                    <button className="btn btn-outline-info">Login</button>
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link text-info" to="/register">
+                    <button className="btn btn-outline-info">Register</button>
+                </Link>
+                </li>
+            </ul>
+        
+    );
+
+    const userClear = () => (
+        localStorage.removeItem('user'),
+        localStorage.removeItem('plane'),
+        localStorage.removeItem('bid'),
+        localStorage.removeItem('sid'),
+        localStorage.removeItem('tickets'),
+        localStorage.removeItem('nop')
+    )
+
+    const onTickets= () => {
+       history.push('/tickets')
+    }
+
+
+    const loggedOut = (
+            <ul className="nav justify-content-end">
+                {/* {console.log(JSON.parse(localStorage.getItem('user')).isadmin)} */}
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/">
+                        <button className="btn btn-outline-info">Home</button>
+                    </Link>
+                </li>
+                { localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===0 
+                &&  
+                    <li className="nav-item nav-link text-info">
+                            <button onClick={onTickets} className="btn btn-outline-info">BookingHistory</button>
+                    </li>
+                }
+
+                {localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===1 
+                &&
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/addFlight">
+                        <button className="btn btn-outline-info">Add Flight</button>
+                    </Link>
+                </li>}
+
+
+                {localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===1
+                &&
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/allFlights">
+                        <button className="btn btn-outline-info">All Flights</button>
+                    </Link>
+                </li>
+                }
+
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/">
+                        <button onClick={userClear} className="btn btn-outline-info">Logout</button>
+                    </Link>
+                </li>
+
+                { localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===0 
+                &&  
+                <li className="nav-item nav-link text-info">
+                    <button className="btn btn-outline-warning">Welcome {JSON.parse(localStorage.getItem('user')).username}</button>
+                </li>
+                }
+
+                
+                {localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===1
+                &&
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/admin">
+                        <button className="btn btn-outline-warning">Admin</button>
+                    </Link>
+                </li>
+                }
+
+
+            </ul>
+    );
+    
+
     return (
         <div>
             <nav className="navbar navbar-dark bg-nav fixed-top" style={navstyle.bg}>
@@ -11,14 +110,11 @@ function Header(props) {
                         <img src={logo} alt="plane_logo" width="30" height="24" className="d-inline-block align-text-top" />
                         BookMyFlight
                     </Link>
-                    <ul className="nav justify-content-end">
-                        <li className="nav-item">
-                        <Link className="nav-link text-info" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link text-info" to="/register">Register</Link>
-                        </li>
-                    </ul>
+                       
+
+                    { localStorage.getItem('user')  ? loggedOut : loggedIn  }
+                    {/* {console.log(localStorage.getItem('user'))} */}
+                   
                 </div>
             </nav>
         </div>
