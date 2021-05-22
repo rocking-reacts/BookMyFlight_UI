@@ -10,21 +10,23 @@ class Tickets extends Component {
     constructor(props){
         super(props)
         this.service = new BookingService();
-        this.tickets = JSON.parse(localStorage.getItem('tickets'))
-        console.log("Tickets: "+ this.tickets)
-        console.log(localStorage.getItem('tickets'))
-        
-    }
-
-    componentDidMount(){
-        
+        this.tickets = []
         if(!localStorage.getItem('user'))
         {
             this.props.history.push('/login')
         }
         else{
-            this.service.getTickets();
+            this.service.getTickets().then(response => {
+                console.log("Tickets page : " +response)
+                this.tickets = (response.data)
+                console.log("Tickets: "+ this.tickets)
+            });
         }
+        
+    }
+
+    componentDidMount(){
+        
     }
 
     showTicket(x) {
@@ -35,6 +37,7 @@ class Tickets extends Component {
     
     render(){
         if(!this.tickets){return null}
+
         const flightList = this.tickets.map((x)=>
                 <tr key={x.ticketNumber}>
                     <td>{x.ticketNumber}</td>

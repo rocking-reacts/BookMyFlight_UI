@@ -40,7 +40,7 @@ export default class BookingService {
         return await axios.get(this.uri+"/getTickets/"+uid)
         .then(response => {
             console.log(response.data)
-            localStorage.setItem("tickets",JSON.stringify(response.data))
+            // localStorage.setItem("tickets",JSON.stringify(response.data))
             return response;
         })
     }

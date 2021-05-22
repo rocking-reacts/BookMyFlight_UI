@@ -84,7 +84,7 @@ class Passengers extends Component {
                 onChange={e => this.setState({age:e.target.value})} maxLength="2" />
             </td>
             <td align='center'>
-                <button disabled={this.state.btn} class="btn btn-warning " onClick={() => this.handleClick(i)}>Book Ticket</button>
+                <button disabled={this.state.btn} class="btn btn-warning " onClick={() => this.handleClick(i)}>Add Passenger</button>
             </td>
         </tr>
       );
@@ -143,7 +143,7 @@ class Passengers extends Component {
                                             <label><input type="checkbox" value="" required />&nbsp; <a href="#" data-toggle="modal" data-target="#myModal">Agree Terms and Conditions</a></label>
                                         </div>
                                         <div class="card-footer"> 
-                                            <button onClick={this.savePassenger} type="button" disabled={!this.state.btn} class="subscribe btn btn-primary btn-block shadow-sm"> Add passengers</button>
+                                            <button onClick={this.savePassenger} type="button" disabled={!this.state.btn} class="subscribe btn btn-primary btn-block shadow-sm"> Book Ticket</button>
                                         </div>
 
                                     </form>
