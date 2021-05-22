@@ -15,6 +15,7 @@ import UpdateFlight from './components/UpdateFlight';
 import Summary from './components/Summary';
 import Seats from './components/Seats';
 import Weather from './components/Weather';
+import Feedback from './components/Feedback';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/updateFlight" component={UpdateFlight} />
         <Route path="/seats" component={Seats} />
         <Route path="/weather" component={Weather} />
+        <Route path="/feedback" component={Feedback} />
         <Route component={ErrorWorld} />
         
       </Switch>

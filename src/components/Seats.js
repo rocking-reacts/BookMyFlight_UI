@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import '../assets/css/SeatsStyle.css'
 import planeBG from "../assets/images/airplane1-removebg-preview.png";
+import planeBG1 from "../assets/images/carpet.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
-function Seats() {
-    const history = useHistory();
+class Seats extends Component {
 
-    if(!localStorage.getItem('user') )
-    {
-        return  alert('Please Login'),history.push('/login'),null
+    greetUser = () => {
+        alert('Seats booked Successfully! \r\n Leave Feed back')
+        this.props.history.push('/feedback')
+      }
+
+    componentDidMount(){
+        if(!localStorage.getItem('user') )
+        {
+            return  alert('Please Login'), this.props.history.push('/login'),null
+        }
     }
+
+    
+
+    render() {
     return (
-        <div class='pt-5'>
-            <Header />
-       <div class="py-5" style={{marginTop:'100px',marginLeft:'180px',backgroundImage: `url(${planeBG})`,backgroundRepeat:'no-repeat',overflow: 'hidden', height: '600px'}}>
+        <div class='pt-3'>
+        <Header />
+        <div class="py-5" style={{backgroundImage: `url(${planeBG1})`,overflow: 'hidden', height: '700px'}}>
+
+            <div class="py-5" style={{marginTop:'100px',marginLeft:'180px',backgroundImage: `url(${planeBG})`,backgroundRepeat:'no-repeat',overflow: 'hidden', height: '600px'}}>
            <div class="plane">
   <div class="cockpit">
   <h3>hsuqwdiuqwdhiude</h3>
@@ -221,18 +235,21 @@ function Seats() {
         </li>
       </ol>
     </li>
-    
-    
+   
   </ol>
   <div class="exit exit--back fuselage">
     
   </div>
 </div>
-
+        <div style={{textAlign:'right', marginRight:'150pt', marginTop:'220pt'}}>
+            <button class='btn btn-warning' onClick={this.greetUser} >Leave Feedback</button>
+        </div>
         </div>
         <Footer />
             </div>
+            </div>
     );
+    }
 }
 
 export default Seats;

@@ -5,6 +5,7 @@ import ReactToPrint from 'react-to-print'
 import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
+import { Link } from 'react-router-dom';
 
 class Ticket extends Component {
     
@@ -48,6 +49,11 @@ class Ticket extends Component {
         }
 
 
+    onSeats = () =>{
+        this.props.history.push('/seats')
+    }
+
+
     render() {
         if(!this.ticket){
             return null
@@ -74,14 +80,22 @@ class Ticket extends Component {
         
         
     return (
+
        <div class='pt-3'>
         <Header />
         <div class="py-5" style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '700px'}}>
-            <div style={{textAlign:'right', marginRight:'90pt', marginTop:'180pt'}}>
+        
+            <div style={{textAlign:'right', marginRight:'90pt', marginTop:'130pt'}}>
             <ReactToPrint 
                 trigger={() => <a class="btn text-light bg-dark" role="button" href="#">Print The Ticket</a>}
                 content={() => this.componentRef}
-            /></div>
+            />
+            </div>
+
+            <div style={{textAlign:'right', marginRight:'110pt', marginTop:'10pt'}}>
+                <button class='btn text-light bg-dark' onClick={this.onSeats}>Select Seats</button>
+            </div>
+
             <div class="box pt-2" ref={el => (this.componentRef = el)}>
             <div class="ticket">
                 <span class="airline">BookMyFlight Airlines</span>
