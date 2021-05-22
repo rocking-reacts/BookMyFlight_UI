@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import planeTicket from "../assets/logo/plane-ticket.png";
 import plane from '../assets/images/travel1.jpg';
 import Header from './Header';
 import Footer from './Footer';
 
 function Admin(props) {
+    const history = useHistory();
+
+    if(!localStorage.getItem('user') || JSON.parse(localStorage.getItem('user')).isadmin === 0  )
+    {
+        return  alert('Access Denied'),history.push('/'),null
+    }
+
+    else{
     return (
         <div style={{paddingTop : 70}}>
             <Header />
@@ -32,6 +40,7 @@ function Admin(props) {
             <Footer/>
         </div>
     );
+    }
 };
 
 let styling = {

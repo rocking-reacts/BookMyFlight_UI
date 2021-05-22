@@ -13,6 +13,8 @@ import Ticket from './components/Ticket'
 import Tickets from './components/Tickets';
 import UpdateFlight from './components/UpdateFlight';
 import Summary from './components/Summary';
+import Seats from './components/Seats';
+import Weather from './components/Weather';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/addFlight" component={AddFlight} />
         <Route path="/allFlights" component={FlightListAdmin} />
         <Route path="/updateFlight" component={UpdateFlight} />
+        <Route path="/seats" component={Seats} />
+        <Route path="/weather" component={Weather} />
         <Route component={ErrorWorld} />
         
       </Switch>

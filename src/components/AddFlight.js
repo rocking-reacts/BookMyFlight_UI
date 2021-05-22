@@ -9,18 +9,31 @@ class AddFlight extends React.Component {
     constructor(props){
         super(props);
         // this.service= new FlightService();
-        this.service = new FlightServiceRest();
-        this.state = {
-            source : undefined,
-            destination: undefined,
-            travelDate: undefined,
-            arrivalTime: undefined,
-            departureTime: undefined,
-            price: 0,
-            availableSeats: 0
+        if(!localStorage.getItem('user')){
+            alert('Please Login')
+            this.props.history.push('/login')
         }
-    }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 1 ){
+            this.service = new FlightServiceRest();
+            this.state = {
+                source : undefined,
+                destination: undefined,
+                travelDate: undefined,
+                arrivalTime: undefined,
+                departureTime: undefined,
+                price: 0,
+                availableSeats: 0
+            }
+        }
+        else{
+            alert('Access Denied')
+            this.props.history.push('/')
+        }
 
+    }
+        
+}
     handleInput = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -39,6 +52,14 @@ class AddFlight extends React.Component {
     }
 
     render() {
+        if(!localStorage.getItem('user')){
+            return null
+        }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 0  )
+            {return null}
+        }
+        
         return (
         <div>
             <Header />

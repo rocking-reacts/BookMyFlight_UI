@@ -10,17 +10,29 @@ class UpdateFlight extends Component {
     constructor(props){
         super(props);
         // this.service= new FlightService();
-        this.service = new FlightServiceRest();
-        this.temp = JSON.parse(localStorage.getItem('flight'));
-        this.state = {
-            flightNumber: this.temp.flightNumber,
-            source : this.temp.source,
-            destination: this.temp.destination,
-            travelDate: this.temp.travelDate,
-            arrivalTime: this.temp.arrivalTime,
-            departureTime: this.temp.departureTime,
-            price: this.temp.price,
-            availableSeats: this.temp.availableSeats
+        if(!localStorage.getItem('user')){
+            alert('Please Login')
+            this.props.history.push('/login')
+        }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 1 ){
+                this.service = new FlightServiceRest();
+                this.temp = JSON.parse(localStorage.getItem('flight'));
+                this.state = {
+                    flightNumber: this.temp.flightNumber,
+                    source : this.temp.source,
+                    destination: this.temp.destination,
+                    travelDate: this.temp.travelDate,
+                    arrivalTime: this.temp.arrivalTime,
+                    departureTime: this.temp.departureTime,
+                    price: this.temp.price,
+                    availableSeats: this.temp.availableSeats
+                }
+            }
+            else{
+                alert('Access Denied')
+                this.props.history.push('/')
+            }
         }
 
         console.log("flight", this.temp);
@@ -44,6 +56,13 @@ class UpdateFlight extends Component {
     }
 
     render() {
+        if(!localStorage.getItem('user')){
+            return null
+        }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 0  )
+            {return null}
+        }
         return (
             <div>
                 <Header/>

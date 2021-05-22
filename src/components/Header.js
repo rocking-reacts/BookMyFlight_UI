@@ -9,6 +9,11 @@ function Header(props) {
         
             <ul className="nav justify-content-end">
              <li className="nav-item">
+                    <Link className="nav-link text-info" to="/weather">
+                        <button className="btn btn-outline-warning">Today's Weather</button>
+                    </Link>
+                </li>
+             <li className="nav-item">
                 <Link className="nav-link text-info" to="/">
                     <button className="btn btn-outline-info">Home</button>
                 </Link>
@@ -44,6 +49,12 @@ function Header(props) {
     const loggedOut = (
             <ul className="nav justify-content-end">
                 {/* {console.log(JSON.parse(localStorage.getItem('user')).isadmin)} */}
+                <li className="nav-item">
+                    <Link className="nav-link text-info" to="/weather">
+                        <button className="btn btn-outline-warning">Today's Weather</button>
+                    </Link>
+                </li>
+
                 <li className="nav-item">
                     <Link className="nav-link text-info" to="/">
                         <button className="btn btn-outline-info">Home</button>
@@ -83,7 +94,7 @@ function Header(props) {
                 { localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===0 
                 &&  
                 <li className="nav-item nav-link text-info">
-                    <button className="btn btn-outline-warning">Welcome {JSON.parse(localStorage.getItem('user')).username}</button>
+                    <button className="btn btn-outline-warning"><b>Welcome {JSON.parse(localStorage.getItem('user')).username}</b></button>
                 </li>
                 }
 

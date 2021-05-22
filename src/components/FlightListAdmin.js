@@ -9,10 +9,29 @@ class FlightListAdmin extends Component {
     constructor(props) {
         super(props);
         // this.service = new FlightService();
-        this.service = new FlightServiceRest();
-        this.state = {
+        if(!localStorage.getItem('user')){
+            alert('Please Login')
+            this.props.history.push('/login')
+            this.service = new FlightServiceRest();
+                this.state = {
+                    }
+        }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 1 ){
+                this.service = new FlightServiceRest();
+                this.state = {
+                    }
+            }
+            else{
+                alert('Access Denied')
+                this.props.history.push('/')
+                this.service = new FlightServiceRest();
+                this.state = {
+                    }
+            }
         }
     }
+       
 
     componentDidMount() {
         this.getFlights();
@@ -41,8 +60,17 @@ class FlightListAdmin extends Component {
     }
 
     render() {
-        if(!this.state.flights)
-            return null;
+        if(!localStorage.getItem('user')){
+            if(!this.state.flights)
+                return null;
+        }
+        else{
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 0  )
+                if(!this.state.flights)
+                    return null;
+        }
+        
+       
 
         const flightlist = this.state.flights.map(f => {
             return (
