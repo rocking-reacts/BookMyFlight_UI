@@ -94,7 +94,7 @@ function Header(props) {
                 { localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isadmin ===0 
                 &&  
                 <li className="nav-item nav-link text-info">
-                    <button className="btn btn-outline-warning"><b>Welcome {JSON.parse(localStorage.getItem('user')).username}</b></button>
+                    <h6 style={{marginTop:'7px'}}><b className='text-warning'>Welcome {JSON.parse(localStorage.getItem('user')).username}</b></h6>
                 </li>
                 }
 

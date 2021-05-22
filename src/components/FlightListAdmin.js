@@ -9,25 +9,22 @@ class FlightListAdmin extends Component {
     constructor(props) {
         super(props);
         // this.service = new FlightService();
+        this.service = new FlightServiceRest();
+                this.state = {
+                    }
         if(!localStorage.getItem('user')){
             alert('Please Login')
             this.props.history.push('/login')
-            this.service = new FlightServiceRest();
-                this.state = {
-                    }
+            
         }
         else{
             if(JSON.parse(localStorage.getItem('user')).isadmin === 1 ){
-                this.service = new FlightServiceRest();
-                this.state = {
-                    }
+                
             }
             else{
                 alert('Access Denied')
                 this.props.history.push('/')
-                this.service = new FlightServiceRest();
-                this.state = {
-                    }
+               
             }
         }
     }
@@ -65,7 +62,7 @@ class FlightListAdmin extends Component {
                 return null;
         }
         else{
-            if(JSON.parse(localStorage.getItem('user')).isadmin === 0  )
+            if(JSON.parse(localStorage.getItem('user')).isadmin === 1  )
                 if(!this.state.flights)
                     return null;
         }

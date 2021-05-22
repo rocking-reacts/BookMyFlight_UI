@@ -84,7 +84,7 @@ class Passengers extends Component {
                 onChange={e => this.setState({age:e.target.value})} maxLength="2" />
             </td>
             <td align='center'>
-                <button disabled={this.state.btn} class="btn btn-warning " onClick={() => this.handleClick(i)}>Add Passenger</button>
+                <button disabled={this.state.btn} class="btn btn-warning " onClick={() => this.handleClick(i)}>Book Ticket</button>
             </td>
         </tr>
       );
