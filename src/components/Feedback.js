@@ -8,7 +8,7 @@ import Header from './Header';
 class Feedback extends Component{
 
     onFeedback = () => {
-        alert('Thank you for you feedback!!')
+        alert('Thank you for your feedback!!')
         this.props.history.push('/')
     }
     onCancel = () => {
@@ -20,10 +20,14 @@ class Feedback extends Component{
         return(
             <div>
             <Header />  
-                <div  style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '700px'}}>
-                    <div class="h-100 d-flex justify-content-center">
+                <div className='pt-5'  style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '800px'}}>
+                    <div class="h-100 d-flex justify-content-center py-5">
                     <div class="jumbotron my-auto display-5">
-                        <h3>Rate your Experience with BookMyFlight:</h3>
+                        <h3 style={{color:'blue'}}>Thank you for travelling with Hawk Airways</h3>
+                        
+                        <h3 style={{color:'green'}} >We assure you to have <b>Safe and Happy Journey.</b></h3>
+                        <br></br>
+                        <h3>Please Rate your Experience with BookMyFlight:</h3>
                         <fieldset class="rating">
                             <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                             <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
@@ -38,15 +42,14 @@ class Feedback extends Component{
                         </fieldset>
                         <br></br>
                         <br></br>
-                        <h4>Please Comment:</h4>
+                        <h4>Comment:</h4>
                             <textarea></textarea><br />
                             
-                            <button onClick={this.onFeedback} className="btn btn-info">Submit</button>
+                            <button onClick={this.onFeedback} className="btn btn-info">Send</button>
                             &nbsp;&nbsp;&nbsp;
                             <button onClick={this.onCancel} className="btn btn-warning">Cancel</button>
                     </div>
                 </div>
-               
                </div>
                <Footer />
             </div>

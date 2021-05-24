@@ -43,6 +43,8 @@ class Tickets extends Component {
                     <td>{x.ticketNumber}</td>
                     <td>{x.booking.flight.source}</td>
                     <td>{x.booking.flight.destination}</td>
+                    <td>{x.booking.flight.travelDate}</td>
+                    <td>{x.booking.bookingDate}</td>
                     <td><button class='btn-link' onClick={() => this.showTicket(x)}>View Ticket</button></td>
                 </tr>
         )
@@ -71,6 +73,8 @@ class Tickets extends Component {
                                             <th>Ticket Number</th>
                                             <th>Source</th>
                                             <th>Destination</th>
+                                            <th>Travel Date</th>
+                                            <th>Booking Date</th>
                                             <th>Details</th>
                                         </tr>
                                             {flightList}

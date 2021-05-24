@@ -12,7 +12,9 @@ function Weather() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState();
   const [temperature, setTemperature] = useState();
+  const date= new Date().toLocaleString() ;
 
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
       fetch(`https://weather-proxy.freecodecamp.rocks/api/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}`)
@@ -38,7 +40,7 @@ function Weather() {
                                     border: '0.2em solid white',
                                     borderRadius: '1em'}}>
         <div class="card-header"><h1 >Weather Today</h1></div>
-
+              <h3>{date}</h3>
             <div class="card-body">
                 <div id="Weather">
                     <h2 id="city">City: {`${data.name}, ${data.sys.country}`}</h2>

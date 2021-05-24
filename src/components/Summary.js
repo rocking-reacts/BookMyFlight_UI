@@ -12,9 +12,9 @@ class Summary extends Component {
         if(!localStorage.getItem('user')){this.props.history.push('/login')}
         else{
         this.summary = JSON.parse(localStorage.getItem('sid'))
-        this.fare = JSON.parse(localStorage.getItem('plane'))
+        this.airplane = JSON.parse(localStorage.getItem('plane'))
         console.log(this.summary)
-        this.amount = this.summary.length * this.fare.price
+        this.amount = this.summary.length * this.airplane.price
         }
     }
 
@@ -62,6 +62,18 @@ class Summary extends Component {
                                                     <th>Gender</th>
                                                 </tr>
                                                 {passList}<br></br>
+                                                <h5 >Travelling Details</h5>
+                                                <tr>
+                                                    <th>Source </th>
+                                                    <th>Destination</th>
+                                                    <th>Travel Date</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>{this.airplane.source}</td>
+                                                    <td>{this.airplane.destination}</td>
+                                                    <td>{this.airplane.travelDate}</td>
+                                                </tr>
+                                                <br></br>
                                                 <tr>
                                                     <td><strong>Amount to pay</strong></td>
                                                     <td></td>

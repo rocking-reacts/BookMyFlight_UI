@@ -6,6 +6,7 @@ import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 import { Link } from 'react-router-dom';
+import { send } from 'emailjs-com';
 
 class Ticket extends Component {
     
@@ -53,6 +54,37 @@ class Ticket extends Component {
         this.props.history.push('/seats')
     }
 
+    onMail = () => {
+
+        let msg = 'Your ticket is Confirmed with number : ' + this.ticket.ticketNumber;
+        let src = 'Source : ' + this.ticket.booking.flight.source;
+        let dst = 'Destination : ' + this.ticket.booking.flight.destination;
+        let travel_date = 'Travel Date : ' + this.ticket.booking.flight.travelDate;
+
+        let tosend = {
+                from_name: 'Hawk Airways',
+                to_name: JSON.parse(localStorage.getItem('user')).fname,
+                message: msg,
+                source : src,
+                destination : dst,
+                travelDate : travel_date,
+                reply_to: JSON.parse(localStorage.getItem('user')).email,
+                }
+        send(
+            'service_enui0by',
+            'template_xkbuxqd',
+            tosend,  
+            'user_yzrYhjB6DwK4wPq69r043'
+          )
+            .then((response) => {
+              console.log('SUCCESS!', response.status, response.text);
+              alert('Your ticket details has been emailed !!')
+            })
+            .catch((err) => {
+              console.log('FAILED...', err);
+            });
+    }
+
 
     render() {
         if(!this.ticket){
@@ -92,8 +124,13 @@ class Ticket extends Component {
             />
             </div>
 
+
             <div style={{textAlign:'right', marginRight:'110pt', marginTop:'10pt'}}>
                 <button class='btn text-light bg-dark' onClick={this.onSeats}>Select Seats</button>
+            </div>
+
+            <div style={{textAlign:'right', marginRight:'95pt', marginTop:'15pt'}}>
+                <button class='btn text-light bg-dark' onClick={this.onMail}>Mail My Ticket</button>
             </div>
 
             <div class="box pt-2" ref={el => (this.componentRef = el)}>
@@ -129,12 +166,13 @@ class Ticket extends Component {
                         <span>₹{this.ticket.total_pay}</span> <br />
                     </span>
 
-                    <span class="boardingtime">Boarding Time<br /><span>{this.ticket.booking.flight.arrivalTime}</span></span>
-                    <span class="departuretime">Departure Time<br /><span>{this.ticket.booking.flight.departureTime}</span></span>
+                    <span class="boardingtime">Departure Time<br /><span>{this.ticket.booking.flight.arrivalTime}</span></span>
+                    <span class="traveldate">Travel Date<br /><span>{this.ticket.booking.flight.travelDate}</span></span>
+                    <span class="departuretime">Arrival Time<br /><span>{this.ticket.booking.flight.departureTime}</span></span>
+                
                 </div>
                 </div>
                 <div class="barcode"></div>
-                <div class="barcode slip"></div>
             </div>
             
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

@@ -119,14 +119,17 @@ export default class Register extends Component {
 										<input type="text" name="cpasswd" onChange={this.handlePass} className="form-control" required/><div className="text-danger">{this.state.cp} </div> 
 								</div>
                                 
-                                <div className="card-footer"> <button onClick={this.registerUser}  className="subscribe btn btn-primary btn-block shadow-sm" disabled={!this.state.flag}>Register</button></div>      
+                                <div className="card-footer"> 
+								<button onClick={this.registerUser}  className="subscribe btn btn-primary btn-block shadow-sm" disabled={!this.state.flag}>Register</button>
+								
+								</div>      
                             </form>
                             
                         </div>
                     </div>
                     <div classNameName="form-group" > 
 				
-                       <div ><Link className="card-link" to="/login"><button  type="button" className="btn  btn-link btn-block">Already registered</button></Link>  </div> 
+                       <div ><Link className="card-link" to="/login"><button  type="button" className="btn  btn-link btn-block">Already registered? Login Now!</button></Link>  </div> 
                     </div>
                    </div>
                 </div>

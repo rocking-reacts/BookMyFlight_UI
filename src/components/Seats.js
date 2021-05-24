@@ -10,7 +10,7 @@ import Header from './Header';
 class Seats extends Component {
 
     greetUser = () => {
-        alert('Seats booked Successfully! \r\n Leave Feed back')
+        alert('Seats booked Successfully! \r\n Leave Feedback')
         this.props.history.push('/feedback')
       }
 
@@ -242,7 +242,7 @@ class Seats extends Component {
   </div>
 </div>
         <div style={{textAlign:'right', marginRight:'150pt', marginTop:'220pt'}}>
-            <button class='btn btn-warning' onClick={this.greetUser} >Leave Feedback</button>
+            <button class='btn btn-warning' onClick={this.greetUser} >Confirm Seats</button>
         </div>
         </div>
         <Footer />

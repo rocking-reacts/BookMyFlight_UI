@@ -367,6 +367,21 @@
   font-size: 17px;
 }
 
+.traveldate{
+  position: absolute;
+  top: 250px;
+  left: 200px;
+  font-family: Arial Narrow, Arial;
+  font-weight: bold;
+  font-size: 14px;
+  color: #999;
+}
+
+.traveldate span{
+  color: #555;
+  font-size: 17px;
+}
+
 .departuretime{
   position: absolute;
   top: 250px;

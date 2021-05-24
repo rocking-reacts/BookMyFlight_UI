@@ -34,10 +34,13 @@ class Payment extends Component {
         
             
     } 
+
+    
     
     render(){
         if(!localStorage.getItem('user')){return null}
     return (
+        
         <div class='pt-5'>
         <Header />
         <div class="py-5" style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '800px'}}>
@@ -72,9 +75,10 @@ class Payment extends Component {
                                         
                                 </div>
                                 <br></br>
+                                <form>
                                 <div className="form-group">
                                         <label for="cc-number" className="control-label">CARD NUMBER</label> 
-                                        <input id="cc-number" type="mobile" className="form-control" placeholder="•••• •••• •••• ••••" /> 
+                                        <input name="cnumber"  type="mobile" className="form-control" placeholder="•••• •••• •••• ••••" pattern="[0-9]{16}" required/> 
                                 </div>
                                 
                                 <br></br>
@@ -83,12 +87,12 @@ class Payment extends Component {
                                         <div className="col-md-6">
                                             <div className="form-group"> 
                                             <label for="cc-exp" className="control-label">CARD EXPIRY</label>
-                                            <input id="cc-exp" type="month" className="form-control"  />
+                                            <input id="cc-exp" type="month" className="form-control"  required/>
                                             </div>
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-group"> <label for="cc-cvc" className="control-label">CARD CVC</label>
-                                            <input id="cc-cvc" type="mobile" className="form-control" placeholder="••••" /> 
+                                            <input name="cvc" type="mobile" className="form-control" placeholder="•••" pattern="[0-9]" required /> 
                                             </div>
                                         </div>
                                 </div>
@@ -96,7 +100,7 @@ class Payment extends Component {
                                 <br></br>
                                 <div className="form-group"> 
                                         <label for="holder-name" className="control-label">CARD HOLDER NAME</label> 
-                                        <input type="text" className="form-control" />
+                                        <input name="cname" type="text" className="form-control" pattern="[A-Za-z]{4,}" required />
                                 </div>
                                 
                                 <br></br>
@@ -104,9 +108,10 @@ class Payment extends Component {
                         
                                 <div className="card-footer"> 
                                    <div className="col-md-12 text-center">
-                                        <button onClick={this.createTicket} className="subscribe btn btn-primary btn-block shadow-sm"> Make Payment </button>
+                                        <button type="submit" onClick={this.createTicket} className="subscribe btn btn-primary btn-block shadow-sm"> Make Payment </button>
                                     </div> 
                                 </div>
+                                </form>
                                              </div>
                                          </div>
                                    </div>                           

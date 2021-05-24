@@ -56,6 +56,24 @@ class FlightListAdmin extends Component {
         this.props.history.push('/updateFlight');
     }
 
+    calculateDuration = (f) => {
+        let t1 = new Date('1970-01-01T' + f.departureTime + 'Z')
+        let t2 = new Date('1970-01-01T' + f.arrivalTime + 'Z')
+        let hour = t1.getUTCHours() - t2.getUTCHours()
+        let min = t1.getUTCMinutes() - t2.getUTCMinutes()
+
+        if( hour < 0)
+        {
+            hour = 12+hour
+        }
+        if(min < 0){
+            min = 60+min
+        }
+
+        return (hour +'hr '+min + 'min')
+
+    }
+
     render() {
         if(!localStorage.getItem('user')){
             if(!this.state.flights)
@@ -93,11 +111,15 @@ class FlightListAdmin extends Component {
                         <div className="row mb-2">
                             <div className="col fw-bold">Takeoff Time</div>
                             <div className="col">{f.arrivalTime}</div>
-                        </div>    
+                        </div>
                         <div className="row mb-2">
                             <div className="col fw-bold">Landing Time</div>
                             <div className="col">{f.departureTime}</div>
-                        </div>   
+                        </div>    
+                        <div className="row mb-2">
+                            <div className="col fw-bold">Duration</div>
+                            <div className="col">{this.calculateDuration(f)}</div>
+                        </div>
                         <div className="row mb-2">
                             <div className="col fw-bold">Fare</div>
                             <div className="col">{f.price}</div>
@@ -117,7 +139,7 @@ class FlightListAdmin extends Component {
         });
 
         return (
-            <div style={{backgroundImage: `url(${plane})`,overflow: 'hidden', height: '3000px'}}>
+            <div style={{backgroundImage: `url(${plane})`,overflow: 'hidden', height: '20000px'}}>
                 <Header/>
                 <div className="pt-5">
                 <div className="pt-3"  style={styling.wrapper}>

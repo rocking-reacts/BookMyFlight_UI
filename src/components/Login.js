@@ -3,6 +3,7 @@ import UserService from '../services/UserService';
 import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
+import { Link } from 'react-router-dom';
 
 
 export default class Login extends Component{
@@ -82,6 +83,10 @@ export default class Login extends Component{
                             }
                     </div>
                    </div>
+                   <div classNameName="form-group" > 
+				
+                       <div ><Link className="card-link" to="/register"><button  type="button" className="btn  btn-link btn-block">New User? Register Now!</button></Link>  </div> 
+                    </div>
                 </div>
             </div>
         </div>
