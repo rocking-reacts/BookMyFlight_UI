@@ -146,7 +146,7 @@ class Ticket extends Component {
 
             <div class="box pt-2" ref={el => (this.componentRef = el)}>
             <div class="ticket">
-                <span class="airline">BookMyFlight Airlines</span>
+                <span class="airline">Hawk Airways</span>
                 <span class="boarding">Boarding : {this.ticket.booking.flight.source}</span>
                 <div class="content">
                 <span class="jfk">{this.ticket.booking.flight.source}</span>
