@@ -1,6 +1,11 @@
 import React from 'react';
 import background from '../assets/images/plane3.jpg';
 
+/**
+ * 
+ * @author Sahithi
+ * this component renders error page for wrong url
+ */
 function ErrorWorld(props) {
     return (
         <div className="container-fluid" style={styling.bg}>

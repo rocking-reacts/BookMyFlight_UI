@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * @author Sai Likhita
+ * This component renders Footer 
+ */
 function Footer() {
     return (
         <div style={footerStyle.pos}>

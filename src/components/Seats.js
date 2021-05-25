@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
 import '../assets/css/SeatsStyle.css'
 import planeBG from "../assets/images/airplane1-removebg-preview.png";
 import planeBG1 from "../assets/images/carpet.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/**
+ * @author Sahithi
+ * this component interacts with user to choose seat
+ */
 class Seats extends Component {
 
+  /** Shows alert message and redirects to Feedback component */
     greetUser = () => {
         alert('Seats booked Successfully! \r\n Leave Feedback')
         this.props.history.push('/feedback')

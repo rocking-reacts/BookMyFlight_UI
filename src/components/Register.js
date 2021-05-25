@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import UserService from '../services/UserService';
-import Login from './Login';
 import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/** 
+ * @author Shivam
+ * This component will render Register page for the app 
+ * UserService: Service for registering new user
+*/
 export default class Register extends Component {
 
 	constructor(props){
@@ -24,15 +28,8 @@ export default class Register extends Component {
 
 	componentDidMount(){
 		
-	
-		// if(JSON.parse(localStorage.getItem('user'))==null){
-		// 	console.log('user is null');
-		// 	this.props.history.push('/login');
-		// 	//localStorage.clear();
-		// }
-		
-
 	}
+
 	handleInput=(event)=>{
 		const name=event.target.name;
 		const value=event.target.value;
@@ -41,6 +38,7 @@ export default class Register extends Component {
 		});
 	}
 
+	/** this method is for password confirmation */ 
 	handlePass=(event)=>{
 		if(event.target.value!==this.state.password){
 			this.setState({cp:"Invalid Password!!"});
@@ -52,6 +50,10 @@ export default class Register extends Component {
 		}
 	}
 
+	/** 
+	 * this method interacts with service to register new user
+	 * redirects to login page
+	*/
 	registerUser = () =>{
 		//alert('willing to register');
 		this.service.addUser(this.state).then(response=>{

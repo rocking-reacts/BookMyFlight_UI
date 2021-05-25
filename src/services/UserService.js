@@ -1,5 +1,10 @@
 import axios from "axios";
 
+/**
+ * @author Shivam
+ * Using Axios library to send request to spring boot and fetch response
+ * The service method handles operations for user
+ */
 export default class UserService{
 
     constructor(){
@@ -7,21 +12,19 @@ export default class UserService{
        
     }
 
+    // Service method to register new user
     async addUser(user){
         return await axios.post(this.uri+"/createuser",user).then(response=>{
             return response;
         });
     }
 
+    
     getUsers(){
         return this.users;
     }
 
-    async getUser(){
-    
-      
-    }
-
+    // Service method to authenticate user
     async validateUser(username,password){
         return await axios.get(this.uri+"/auth/"+username+"/"+password).then(res=>{
             console.log(res);

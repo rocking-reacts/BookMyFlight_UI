@@ -5,6 +5,11 @@ import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/**
+ * @author Sai Likhita
+ * This component renders Feedback and thankyou page
+ * Uses external style sheet for styling
+ */
 class Feedback extends Component{
 
     onFeedback = () => {

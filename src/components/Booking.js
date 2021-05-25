@@ -4,7 +4,12 @@ import BookingService from '../services/BookingService';
 import Header from './Header';
 import Footer from './Footer';
 
-
+/**
+ * @author Ankita
+ * @author Shivam
+ * this component takes input for creating booking
+ * BookingService: Service for adding new booking in database
+ */
 class Booking extends Component {
 
 
@@ -40,6 +45,10 @@ class Booking extends Component {
         })
     }
 
+    /**
+     * This method add booking using service 
+     * adds no of seats to local storage and redirects to Passengers component
+     */
     goOnPassangers = () => {
         // console.log(this.state.nops)
         console.log(this.state.numberOfSeatsToBook)

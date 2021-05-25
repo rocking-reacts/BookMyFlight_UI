@@ -5,10 +5,15 @@ import Header from './Header';
 import { Link } from 'react-router-dom';
 import FlightServiceRest from '../services/FlightServiceRest';
 
+/**
+ * @author Shivani
+ * this component takes input from admin for creating new flight
+ * FlightServiceRest : Service for adding new flight in the database
+ */
 class AddFlight extends React.Component {
     constructor(props){
         super(props);
-        // this.service= new FlightService();
+        
         if(!localStorage.getItem('user')){
             alert('Please Login')
             this.props.history.push('/login')
@@ -34,6 +39,9 @@ class AddFlight extends React.Component {
     }
         
 }
+    /**
+     * This method handles onChange event for input and changing states accordingly
+     */
     handleInput = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -42,6 +50,10 @@ class AddFlight extends React.Component {
         })
     }
 
+    /**
+     * This method interacts with service to add flight in database on submit event
+     * redirects to FlightListAdmin component
+     */
     onSave = (e) => {
         e.preventDefault();
         const flight = this.state;

@@ -2,9 +2,16 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../assets/logo/travelling.png';
 
+/**
+ * 
+ * @author Ankita, Shivam, Shivani
+ * This component renders header and uses condition rendering for differnt users/ non user
+ */
 function Header(props) {
     const history = useHistory();
     const flightuser = localStorage.getItem('user');
+
+    /** The component will be rendered when user has not signed in */
     const loggedIn = (
         
             <ul className="nav justify-content-end">
@@ -32,6 +39,7 @@ function Header(props) {
         
     );
 
+    // clearing local storage for given items when user logs out
     const userClear = () => (
         localStorage.removeItem('user'),
         localStorage.removeItem('plane'),
@@ -41,11 +49,12 @@ function Header(props) {
         localStorage.removeItem('nop')
     )
 
+    /** Redirecting to booking history */
     const onTickets= () => {
        history.push('/tickets')
     }
 
-
+    /** The component will be rendered when user is signed in */
     const loggedOut = (
             <ul className="nav justify-content-end">
                 {/* {console.log(JSON.parse(localStorage.getItem('user')).isadmin)} */}

@@ -1,6 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+/**
+ * Child component for SearchFlight component
+ * Renders list of flights on search
+ */
 class FlightList extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +20,9 @@ class FlightList extends React.Component {
         console.log("flight list : " + this.props.flights)
     }
 
+    /** 
+     * Store flight data in local storage and redirects to Booking
+     */
     handleFlight = (flight) => {
         localStorage.setItem('plane', JSON.stringify(flight));
         this.props.history.push('/booking');

@@ -9,6 +9,12 @@ import plane3 from '../assets/images/plane3.jpg';
 import plane5 from '../assets/images/plane5.jpg';
 import Corousal from './Corousal';
 
+/** 
+ * @author Shivani
+ * This component will render Home page for the app 
+ * Sub Components : Corousal, SearchFlight, Header, Footer
+*/
+
 const features = [
     {
         image : plane1,

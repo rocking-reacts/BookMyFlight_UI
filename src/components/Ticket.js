@@ -8,6 +8,13 @@ import Header from './Header';
 import { Link } from 'react-router-dom';
 import { send } from 'emailjs-com';
 
+/** 
+ * @author Ankita, Shivam
+ * This component will display, print and email ticket
+ * taking data from local storage
+ * Uses emailjs library for sending emails to user
+ * uses external style sheet
+*/
 class Ticket extends Component {
     
     constructor(props){
@@ -47,13 +54,17 @@ class Ticket extends Component {
             this.props.history.push('/login')
         }
        
-        }
+    }
 
 
     onSeats = () =>{
         this.props.history.push('/seats')
     }
 
+    /** 
+     * this method will interact with emailjs library and mail ticket details to user
+     * takes user data from local storage
+    */
     onMail = () => {
 
         let msg = 'Your ticket is Confirmed with number : ' + this.ticket.ticketNumber;

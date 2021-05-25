@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import FlightList from './FlightList';
 import FlightServiceRest from '../services/FlightServiceRest';
 import search from '../assets/logo/magnifying-glass.png';
-import Header from './Header';
-import Footer from './Footer';
 
+/**
+ * @author Shivani
+ * This component searches flight based on source, destibnation and date
+ * FlightServiceRest: Service for fetching flights
+ */
 class SearchFlight extends Component {
     constructor(props) {
         super(props);
@@ -32,6 +35,9 @@ class SearchFlight extends Component {
         })
     }
 
+    /**
+     * This method interact with service to fetch flights details
+     */
     getFlightsList = () => {
         this.setState({
             searched: false

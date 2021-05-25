@@ -4,7 +4,12 @@ import Footer from './Footer';
 import Header from './Header';
 
 
-
+/**
+ * @author Sai Likhita
+ * This component renders weather detaoils for user location
+ * uses https://weather-proxy.freecodecamp.rocks/api API to fetch weather of user location
+ * Uses external style sheet for styling
+ */
 const {useState, useEffect} = React;
 
 
@@ -14,7 +19,9 @@ function Weather() {
   const [temperature, setTemperature] = useState();
   const date= new Date().toLocaleString() ;
 
-  
+  /**
+   * This method fetch data from API and renders the response
+  */
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
       fetch(`https://weather-proxy.freecodecamp.rocks/api/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}`)
@@ -75,9 +82,6 @@ function Weather() {
     return <i style={{margin: '1em'}} class="fas fa-spinner fa-spin"></i>;
   }
 }
-
-
-// ReactDOM.render(<App/>, document.getElementById("react-container"));
 
 
 export default Weather;

@@ -5,6 +5,11 @@ import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/** 
+ * @author Ankita, Shivam
+ * This component will render summary of the booking
+ * taking data from local storage
+*/
 class Summary extends Component {
     
     constructor(props){

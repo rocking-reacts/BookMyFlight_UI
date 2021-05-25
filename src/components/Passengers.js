@@ -5,6 +5,11 @@ import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/** 
+ * @author Ankita, Shivam
+ * This component will take input for passengers details
+ * BookingService: Service for adding passenger details
+*/
 class Passengers extends Component {
 
     constructor(props){
@@ -30,6 +35,7 @@ class Passengers extends Component {
         // console.log(this.state.npsgn)
     }
 
+    /** this handle event method add a single passenger at a time in array*/
     handleClick = (idx) => {
         this.values.push({"id":this.state.id++ ,"pname":this.state.pname, "gender":this.state.gender, "age":this.state.age})
         console.log("Values :"+ JSON.stringify(this.values.length))
@@ -39,6 +45,11 @@ class Passengers extends Component {
         }
     }
 
+    /** 
+     * this method interacts with service to add passenger list 
+     * stores passenger list in local storage
+     * then redirects to Summary component
+     */
     savePassenger = () => {
         console.log("Values save :"+ JSON.stringify(this.values))
         localStorage.setItem('sid',JSON.stringify(this.values))
@@ -49,10 +60,11 @@ class Passengers extends Component {
 
 
     render() {
-        if(!localStorage.getItem('user')){return null}
+    if(!localStorage.getItem('user')){return null}
 
-        var fieldsArray = [];
+    var fieldsArray = [];
 
+    // looping to add passengers to fieldsArray array
     for (var i = 0; i < this.state.npsgn; i++) {
         console.log("inside for")
       fieldsArray.push(
@@ -70,11 +82,7 @@ class Passengers extends Component {
                     <option value={g}>{g}</option>
                 ))}
             </select>
-                {/* <input 
-                class="form-control"
-                type='text' 
-                name='gender'
-                onChange={e => this.setState({gender:e.target.value})} /> */}
+                
             </td>
             <td>
                 <input 
@@ -104,86 +112,75 @@ class Passengers extends Component {
             <div class="row" >
 				<div class="col-md-10  mx-auto">
 					<div class="card" >
-					    <div class="card-header">
-                        <div class="alert alert-info">
-                            <strong>Note: </strong> Please add passengers individually
-                        </div>
-                            <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
-                                <div class="tab-content">
-                                {this.state.info && <div class="alert alert-success">
-                                    <strong>Success!</strong>&nbsp; Passenger added with name : &nbsp; {this.state.pname}
-                                </div>}
-                                    <div class="tab-pane fade show active pt-3">
-                                    <form>
-                                        
-                                        <table class="table">
-                                            <tr align="center" >
-                                                <th>Name</th>
-                                                <th>Gender</th>
-                                                <th>Age</th>
-                                                <th>Add Passenger</th>
-                                            </tr>
-                                            <tbody>
-                                                {fieldsArray}
-                                            </tbody>
-
-                                        {/* <div className = 'inputs'>
+                    <div class="card-header">
+                    <div class="alert alert-info">
+                        <strong>Note: </strong> Please add passengers individually
+                    </div>
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                            <div class="tab-content">
+                            {this.state.info && <div class="alert alert-success">
+                                <strong>Success!</strong>&nbsp; Passenger added with name : &nbsp; {this.state.pname}
+                            </div>}
+                                <div class="tab-pane fade show active pt-3">
+                                <form>
+                                    
+                                    <table class="table">
+                                        <tr align="center" >
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Age</th>
+                                            <th>Add Passenger</th>
+                                        </tr>
+                                        <tbody>
                                             {fieldsArray}
-                                        </div> */}
-                                        {/* <div>
-                                            {JSON.stringify(this.values)}
-                                        </div> */}
-                                            {/* <tr>
-                                                <td><input type="text" class="form-control" id="name" /></td>
-                                                <td><input type="text" class="form-control" id="gender" /></td>
-                                                <td><input type="text" class="form-control" id="age" /></td>
-                                            </tr> */}
-                                        </table>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value="" required />&nbsp; <a href="#" data-toggle="modal" data-target="#myModal">Agree Terms and Conditions</a></label>
-                                        </div>
-                                        <div class="card-footer"> 
-                                            <button onClick={this.savePassenger} type="button" disabled={!this.state.btn} class="subscribe btn btn-primary btn-block shadow-sm"> Book Ticket</button>
-                                        </div>
+                                        </tbody>
 
-                                    </form>
-                                                                            
-                                            <div class="modal fade" id="myModal">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                
-                                                    
-                                                    <div class="modal-header">
-                                                    <h4 class="modal-title">Post COVID-19 Conditions of Carriage</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    
-                                                
-                                                    <div class="modal-body">
-                                                    1. As per Government of India directive “vulnerable persons such as very elderly, pregnant ladies, passengers with health issues are advised to avoid air travel”
-<br></br>
-                                                    2. Passengers to familiarize and follow the social distancing norms as required at the airport premises.
-<br></br>
-                                                    3. Entry into the airport terminal will be permitted only with suitable PPE, at least with a face mask.
-<br></br>
-                                                    4. Follow all self sanitisation norms, as applicable, at the airport.
-<br></br>
-                                                    5. In case any symptoms of COVID-19, passengers may be debarred from entry into the airport or air travel by appropriate authorities.
-
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                    
-                                                </div>
-                                                </div>
-                                            </div>
+                                    </table>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="" required />&nbsp; <a href="#" data-toggle="modal" data-target="#myModal">Agree Terms and Conditions</a></label>
                                     </div>
+                                    <div class="card-footer"> 
+                                        <button onClick={this.savePassenger} type="button" disabled={!this.state.btn} class="subscribe btn btn-primary btn-block shadow-sm"> Book Ticket</button>
+                                    </div>
+
+                                </form>
+                                                                        
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                            
+                                                
+                                                <div class="modal-header">
+                                                <h4 class="modal-title">Post COVID-19 Conditions of Carriage</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                
+                                            
+                                                <div class="modal-body">
+                                                1. As per Government of India directive “vulnerable persons such as very elderly, pregnant ladies, passengers with health issues are advised to avoid air travel”
+<br></br>
+                                                2. Passengers to familiarize and follow the social distancing norms as required at the airport premises.
+<br></br>
+                                                3. Entry into the airport terminal will be permitted only with suitable PPE, at least with a face mask.
+<br></br>
+                                                4. Follow all self sanitisation norms, as applicable, at the airport.
+<br></br>
+                                                5. In case any symptoms of COVID-19, passengers may be debarred from entry into the airport or air travel by appropriate authorities.
+
+                                                </div>
+                                                
+                                                
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                                
+                                            </div>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

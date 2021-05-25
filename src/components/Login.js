@@ -5,7 +5,11 @@ import Footer from './Footer';
 import Header from './Header';
 import { Link } from 'react-router-dom';
 
-
+/** 
+ * @author Shivam
+ * This component will render Login page for the app 
+ * UserService: Service for authenticating user
+*/
 export default class Login extends Component{
 
     constructor(props){
@@ -21,6 +25,11 @@ export default class Login extends Component{
         }
     }
 
+    /**
+     * this method interacts with service to authenticate user
+     * Store user data in local storage
+     * Redirects to Admin/Booking component based on condition
+     */
     validateUser=()=>{
 
         if(this.state.username!==''&& this.state.password!==''){

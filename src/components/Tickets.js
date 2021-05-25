@@ -4,7 +4,11 @@ import Header from './Header';
 import Footer from './Footer';
 import BookingService from '../services/BookingService';
 
-
+/**
+ * @author Ankita
+ * this component renders list of tickets for a logged user
+ * BookingService: Service for fetching tickets details from database
+ */
 class Tickets extends Component {
     state ={multiple_ticket:[]}
     constructor(props){
@@ -29,6 +33,9 @@ class Tickets extends Component {
         
     }
 
+    /** 
+     * stores ticket in local storage and redirects to Ticket component
+    */
     showTicket(x) {
         console.log(x)
         localStorage.setItem('view-ticket',JSON.stringify(x))

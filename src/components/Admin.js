@@ -5,6 +5,10 @@ import plane from '../assets/images/travel1.jpg';
 import Header from './Header';
 import Footer from './Footer';
 
+/**
+ * @author Shivani 
+ * this component renders home page for admin
+ */
 function Admin(props) {
     const history = useHistory();
 

@@ -1,3 +1,8 @@
+/**
+ * @author Shivani
+ * Using inbuilt fetch API to send request to spring boot and fetch response
+ * The service method handles CRUD opertion
+ */
 export default class FlightServiceRest{
     constructor(){
         this.uri = "http://localhost:8980/flight";

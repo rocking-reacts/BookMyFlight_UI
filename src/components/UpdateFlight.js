@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import FlightServiceRest from '../services/FlightServiceRest';
-import { Link } from 'react-router-dom';
 import plane from '../assets/images/travel1.jpg';
 import Header from './Header';
 import Footer from './Footer';
 
+/**
+ * @author Shivani
+ * this component takes input from admin for updating existing flight
+ * FlightServiceRest : Service for updating flight in the database
+*/
 class UpdateFlight extends Component {
 
     constructor(props){
@@ -46,6 +50,11 @@ class UpdateFlight extends Component {
         })
     }
 
+    /**
+     * This method interacts with service to update flight in database
+     * takes data from local storage
+     * redirects to FlightListAdmin component
+    */
     onUpdate = (e) => {
         e.preventDefault();
         const flight = this.state;

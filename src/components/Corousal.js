@@ -3,6 +3,11 @@ import travel1 from '../assets/images/travel1.jpg';
 import travel2 from '../assets/images/travel2.jpg';
 import plane4 from '../assets/images/plane4.jpg';
 
+/**
+ * 
+ * @author Shivani
+ * This component renders Carousel 
+ */
 function Corousal(props) {
     return (
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">

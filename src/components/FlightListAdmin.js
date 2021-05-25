@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import FlightServiceRest from '../services/FlightServiceRest';
 import plane from '../assets/images/travel1.jpg';
-import { Link } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
 
+/**
+ * @author Shivani
+ * @author Shivam
+ * this component renders list of all flights
+ * FlightServiceRest : Service for fetching all flights from database
+ */
 class FlightListAdmin extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +38,9 @@ class FlightListAdmin extends Component {
         this.getFlights();
     }
 
+    /**
+     * This method interacts with service to fetch all flights
+     */
     getFlights = () => {
         this.service.getFlights().then(data => {
             console.log(data);
@@ -41,6 +48,9 @@ class FlightListAdmin extends Component {
         })
     }
 
+    /**
+     * This method interacts with service to delete flight
+    */
     onDelete = (fid) => {  
 
         if(window.confirm("Are you sure you want to delete the flight " + fid + " ?")) {
@@ -50,12 +60,18 @@ class FlightListAdmin extends Component {
         }
     }
 
+    /**
+     * This method stores flight data in local storage and redirects to UpdateFlight
+    */
     onEdit = (flight) => {
         localStorage.setItem('flight', JSON.stringify(flight));
         console.log("flight to be updated : ",localStorage.getItem('flight'));
         this.props.history.push('/updateFlight');
     }
 
+    /**
+     * this method calculate travel duration
+     */
     calculateDuration = (f) => {
         let t1 = new Date('1970-01-01T' + f.departureTime + 'Z')
         let t2 = new Date('1970-01-01T' + f.arrivalTime + 'Z')

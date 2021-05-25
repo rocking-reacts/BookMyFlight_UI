@@ -8,6 +8,11 @@ import planeBG from "../assets/images/planebg1.jpg";
 import Footer from './Footer';
 import Header from './Header';
 
+/**
+ * @author Sahithi
+ * this components renders payment page and validate input payment fields
+ * BookingService: Using Service to generate ticket and updating pay status of booking 
+ */
 class Payment extends Component {
     
     constructor(props){
@@ -24,6 +29,10 @@ class Payment extends Component {
     }
     }
 
+    /**
+     * this method interacts with service to generate ticket for user
+     * redirects to Ticket Component
+     */
     createTicket = () => {
         console.log(this.state.name)
         this.service.generateTicket(this.state).then(response => {
