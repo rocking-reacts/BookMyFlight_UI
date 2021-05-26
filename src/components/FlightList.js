@@ -20,6 +20,27 @@ class FlightList extends React.Component {
         console.log("flight list : " + this.props.flights)
     }
 
+     /**
+     * this method calculate travel duration
+     */
+      calculateDuration = (f) => {
+        let t1 = new Date('1970-01-01T' + f.departureTime + 'Z')
+        let t2 = new Date('1970-01-01T' + f.arrivalTime + 'Z')
+        let hour = t1.getUTCHours() - t2.getUTCHours()
+        let min = t1.getUTCMinutes() - t2.getUTCMinutes()
+
+        if( hour < 0)
+        {
+            hour = 12+hour
+        }
+        if(min < 0){
+            min = 60+min
+        }
+
+        return (hour +'hr '+min + 'min')
+
+    }
+
     /** 
      * Store flight data in local storage and redirects to Booking
      */
@@ -60,7 +81,11 @@ class FlightList extends React.Component {
                     <div className="row mb-2">
                         <div className="col fw-bold">Landing Time</div>
                         <div className="col">{f.departureTime}</div>
-                    </div>   
+                    </div>  
+                    <div className="row mb-2">
+                        <div className="col fw-bold">Duration</div>
+                        <div className="col">{this.calculateDuration(f)}</div>
+                    </div>  
                     <div className="row mb-2">
                         <div className="col fw-bold">Fare</div>
                         <div className="col">{f.price}</div>

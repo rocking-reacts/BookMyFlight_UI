@@ -40,7 +40,7 @@ class Summary extends Component {
     return (
         <div class='pt-5'>
         <Header />
-        <div class="py-5" style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '600px'}}>
+        <div class="py-5" style={{backgroundImage: `url(${planeBG})`,overflow: 'hidden', height: '1200px'}}>
             <div className="row mb-4">
 					<div className="col-lg-8 mx-auto text-center">
 					{/* <h1 className="display-6">Book My Flight</h1> */}

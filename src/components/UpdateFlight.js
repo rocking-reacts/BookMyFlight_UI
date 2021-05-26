@@ -116,13 +116,13 @@ class UpdateFlight extends Component {
                 </div>
 
                 <div className="input-group mb-2 mr-sm-2">    
-                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Arrival Time</label>
+                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Takeoff Time</label>
                     <input className="col-5 my-1 p-1 border border-darken-2" type="time" value={this.state.arrivalTime}
                      name="arrivalTime" onChange={this.handleInput}  required />
                 </div>
                 
                 <div className="input-group mb-2 mr-sm-2">    
-                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Departure Time</label>
+                    <label className="col-4 my-1 p-1 bg-light border border-darken-2">Landing Time</label>
                     <input className="col-5 my-1 p-1 border border-darken-2" type="time" value={this.state.departureTime}
                      name="departureTime" onChange={this.handleInput} required />
                 </div>
