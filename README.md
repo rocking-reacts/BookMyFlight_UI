@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# BookMyFlight
+User interface developed for BookMyFlight using React.js Library
+BookMyFlight is an Airplane reservation/booking system.
+The backend API is built in Spring boot
+
+# Features
+- Attractive and responsive UI.
+- User can register and login.
+- User can search for flights, book the flight, add passengers, make payement and generate tickets.
+- A super user - Admin will be responsible for manipulating flights.
+- Interacts with API using Fetch API and Axios library
+- User can choose seats and can leave feedback
+- Additional feature to check weather for the present day and to email ticket
+- User can also check booking history
+- React-Router-DOM used for routing
+
+The service will make calls to our backend API (BookMyFlight)
+Emailjs ued for sending ticket details to user
+Weather API used to get today's weather
+Images are for personal use only and a big credit to Flaticons
+
+## How to Use/Control?
+
+1. User can search for flights based on source, destination and date without logging in.
+2. User can be directed to login/register using options from navbar
+3. To book a flight user has to login.
+4. For booking user has to enter passengers information.
+5. User enter payment details for ticket generation.
+6. User can either print the ticket and mail the ticket.
+7. User can choose the seat after ticket generation.
+
+## Preview
+<img src="src/assets/images/home.jpg" width="700px" height="450px"></img>
+
+## How To Install.
+
+1. Clone this project
+2. Start by installing npm if you don't have it already.
+3. Navigate to Project Directory by :
+```
+cd BookMyFlight_UI
+```
+4. run following commands :
+```
+npm install 
+npm start or react-scripts start
+```
+
+## Directory Structure
+
+`/src` - all code files <br>
+`/src/components` - all react components <br>
+`/src/services` - service classes <br>
+`/src/assests` - css files, images and logos <br>
+
+
+
+### Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 In the project directory, you can run:
 
-### `npm start`
+#### `yarn start` or `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
