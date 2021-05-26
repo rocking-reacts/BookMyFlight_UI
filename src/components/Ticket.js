@@ -26,8 +26,10 @@ class Ticket extends Component {
         else{
         if(localStorage.getItem('ticket') !==null){
             console.log('if')
+            console.log(localStorage.getItem('ticket'))
             this.ticket=JSON.parse(localStorage.getItem('ticket'))
-            localStorage.removeItem('ticket')
+            this.airplane = JSON.parse(localStorage.getItem('plane'))
+            // localStorage.removeItem('ticket')
         }
         else{
             console.log('else')

@@ -11,9 +11,9 @@ export default class BookingService {
     }
 
     // Service method to add booking 
-    async addBooking(numberOfSeatsToBook,source,destination,date) {
+    async addBooking(numberOfSeatsToBook,flightNumber,source,destination,date) {
         return await axios.post(this.uri+"/booking",{numberOfSeatsToBook},
-        {params:{"source":source,"destination":destination,"date":date}}).then(response => {
+        {params:{"fid":flightNumber,"source":source,"destination":destination,"date":date}}).then(response => {
             console.log(response.data)
             if(response.data.length>3){
                 alert(response.data)

@@ -53,7 +53,7 @@ class Booking extends Component {
         // console.log(this.state.nops)
         console.log(this.state.numberOfSeatsToBook)
         localStorage.setItem('nop',this.state.numberOfSeatsToBook)
-        this.service.addBooking(this.state.numberOfSeatsToBook,this.state.source,this.state.destination,this.state.date
+        this.service.addBooking(this.state.numberOfSeatsToBook,this.state.flightNumber,this.state.source,this.state.destination,this.state.date
             ).then(response => {
                 if(response.data.length>3)
                 {

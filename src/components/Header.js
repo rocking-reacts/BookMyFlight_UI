@@ -41,13 +41,13 @@ function Header(props) {
 
     // clearing local storage for given items when user logs out
     const userClear = () => (
-        // localStorage.removeItem('user'),
-        // localStorage.removeItem('plane'),
-        // localStorage.removeItem('bid'),
-        // localStorage.removeItem('sid'),
-        // localStorage.removeItem('tickets'),
-        // localStorage.removeItem('nop')
-
+        localStorage.removeItem('user'),
+        localStorage.removeItem('plane'),
+        localStorage.removeItem('bid'),
+        localStorage.removeItem('sid'),
+        localStorage.removeItem('tickets'),
+        localStorage.removeItem('nop'),
+        localStorage.removeItem('ticket'),
         localStorage.clear()
     )
 

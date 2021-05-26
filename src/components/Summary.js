@@ -69,11 +69,13 @@ class Summary extends Component {
                                                 {passList}<br></br>
                                                 <h5 >Travelling Details</h5>
                                                 <tr>
+                                                    <th>Flight No.</th>
                                                     <th>Source </th>
                                                     <th>Destination</th>
                                                     <th>Travel Date</th>
                                                 </tr>
                                                 <tr>
+                                                    <td>{this.airplane.flightNumber}</td>
                                                     <td>{this.airplane.source}</td>
                                                     <td>{this.airplane.destination}</td>
                                                     <td>{this.airplane.travelDate}</td>

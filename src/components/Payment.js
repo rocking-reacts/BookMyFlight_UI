@@ -100,7 +100,7 @@ class Payment extends Component {
                                             </div>
                                         </div>
                                         <div className="col-md-6">
-                                            <div className="form-group"> <label for="cc-cvc" className="control-label">CARD CVC</label>
+                                            <div className="form-group"> <label for="cc-cvc" className="control-label">CARD CVV</label>
                                             <input name="cvc" type="mobile" className="form-control" placeholder="•••" pattern="[0-9]" required /> 
                                             </div>
                                         </div>
